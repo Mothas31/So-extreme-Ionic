@@ -1,9 +1,33 @@
 <ion-header>
   <ion-toolbar>
     <ion-title>
-      Tab Two
+      Prise de photo
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content></ion-content>
+<ion-content>
+
+  <ion-grid>
+    <ion-row>
+      <ion-col size="6" *ngFor="let photo of photoService.photos">
+        <img [src]="photo.data" />
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <ion-fab-button (click)="photoService.takePicture()">
+    <ion-icon name="camera"></ion-icon>
+  </ion-fab-button>
+
+
+
+  <ion-fab-button (click)="postPhoto()">
+    Envoyer photo
+  </ion-fab-button>
+
+
+  <ion-fab-button (click)="sendRequest()">
+    Activity
+  </ion-fab-button>
+</ion-content>
